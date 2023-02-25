@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="ui container" style="width: 30%">
+    <h1 class="ui center aligned header">Register</h1>
+    <form action="{% url 'register' %}" method="post" class="ui form">
+        {{ form }}
+        {% csrf_token %}
+        <button type="submit" class="ui teal basic button">Submit</button>
+    </form>
+</div>
+{% endblock %}

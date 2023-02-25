@@ -1,0 +1,13 @@
+<div class="ui fixed borderless  menu" style="matgin-top: 25px; background-color: lightskyblue;">
+    <div class="ui container">
+        <div class="right menu">
+            {% if user.is_authenticated %}
+            <a class="item">{{ user.email }}</a>
+            <a class="item" href="logout">Logout</a>
+            {% else %}
+            <a href="{% url 'login' %}" class="item">Login</a>
+            <a href="{% url 'register' %}" class="item">Register</a>
+            {% endif %}
+        </div>
+    </div>
+</div>

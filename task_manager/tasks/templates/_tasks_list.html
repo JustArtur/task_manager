@@ -1,0 +1,16 @@
+{% for task in tasks %}
+    <div class="ui segment">
+        <p class="ui big header">№{{ task.id }} {{ task.title }}</p>
+        <p class="ui big header">{{ task.description }}</p>
+        {% if task.endTime != None %}
+            <p class="ui big header">{{ task.endTime }}</p>
+        {% elif task.completed == False %}
+        <span class="ui gray label">Не завершено</span>
+        <a class="ui primary basic button" href="{% url 'update' task_id=task.id %}">Закрыть</a>
+        {% else %}
+        <span class="ui green label">Завершено</span>
+        <a class="ui blue button" href="{% url 'update' task_id=task.id %}">Открыть</a>
+        {% endif %}
+        <a class="ui negative basic button" href="{% url 'delete' task_id=task.id %}">Удалить</a>
+    </div>
+    {% endfor %}

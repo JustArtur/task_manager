@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div style="margin-top: 50px;" class="ui container">
+    <h1 class="ui center aligned header">Мой менеджер задач</h1>
+
+    {% include "_new_task_form.html" with tasks=tasks %}
+
+    <p class="ui big header">Выполненные задачи</p>
+    {% include "_tasks_list.html" with tasks=completed_tasks %}
+
+    <p class="ui big header">Невыполненные задачи</p>
+    {% include "_tasks_list.html" with tasks=tasks %}
+
+</div>
+{% endblock %}
